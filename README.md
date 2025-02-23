@@ -18,7 +18,7 @@ As one example I can give here like suppose a temporary storage element is one s
 
 ## 🖼️ **Asynchronus FIFO TOP RTL design block wise**
 
-![FIFO Design](images/12972.jpg)
+![FIFO Design](Results/12972.jpg)
 
 
 
