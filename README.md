@@ -1,19 +1,26 @@
 # Asynchronous FIFO Design in Verilog
 
 ## 📚 **Overview**
-This project implements an **Asynchronous FIFO (First-In-First-Out) buffer** using **Verilog HDL**, suitable for crossing data between two asynchronous clock domains. The FIFO ensures reliable data transfer by using synchronizers and Gray-coded pointers to avoid metastability and timing issues.
+This project implements an **Asynchronous FIFO (First-In-First-Out) buffer** using **Verilog HDL**, suitable for crossing data between two asynchronous clock domains. The FIFO ensures reliable data transfer by using synchronizers and Gray-coded pointers to avoid metastability and timing issues. 
+
+As one example I can give here like suppose a temporary storage element is one side, from another side if I want to comunicate between two of them then for to communicate use one FIFO. Because it is the data communication between two different clock domain. There the ethernet controller writes the data in faster clock spped in FIFO memory and that system memory reads the data form FIFO memory compared to slow clock speed.
 
 ---
 
 ## 🚀 **Key Features**
-- **Asynchronous Clocks:** Independent write and read clock domains.
-- **Gray Code Pointers:** For safe synchronization across clock domains.
-- **2-Stage Synchronizer:** Reduces metastability in pointer transfer.
+- **Asynchronous Clocks:** Independent write and read clock domains. 
+- **2-Stage Synchronizer & binary to gray & gray to binary :** Reduces metastability in pointer transfer, For safe synchronization across clock domains.
 - **Full and Empty Flags:** Accurate detection of FIFO status.
 - **Configurable Parameters:** Supports parameterized data width, depth, and address size.
 - **Testbench Included:** Basic testbench for functional simulation with independent clocks.
 
 ---
+
+## 🖼️ **Asynchronus FIFO TOP RTL design block wise**
+
+![FIFO Design](images/12972.jpg)
+
+
 
 ## 🛠️ **Modules Breakdown**
 
@@ -81,11 +88,6 @@ This project implements an **Asynchronous FIFO (First-In-First-Out) buffer** usi
 
 🎯 **Contributing**
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
----
-
-## 📜 **License**
-This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
 
 ---
 
