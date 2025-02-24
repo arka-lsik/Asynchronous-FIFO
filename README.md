@@ -9,7 +9,7 @@ As one example I can give here like suppose a temporary storage element is one s
 
 ## 🚀 **Key Features**
 - **Asynchronous Clocks:** Independent write and read clock domains. 
-- **2-Stage Synchronizer & binary to gray & gray to binary :** Reduces metastability in pointer transfer, For safe synchronization across clock domains.
+- **2-Stage Synchronizer, binary to gray & gray to binary :** Reduces metastability in pointer transfer, For safe synchronization across clock domains.
 - **Full and Empty Flags:** Accurate detection of FIFO status.
 - **Configurable Parameters:** Supports parameterized data width, depth, and address size.
 - **Testbench Included:** Basic testbench for functional simulation with independent clocks.
