@@ -53,8 +53,14 @@ As one example I can give here like suppose a temporary storage element is one s
 - Displays output on simulation waveform.
 
 ### 7️⃣ **'Assumption'** 
-- Wtite clock domain speed is higher than read clock domain.
-- $$f_{write}$$ = 100MHz
+- Wtite clock domain speed(frequency) is higher than read clock domain freq..
+- $$f_{write}$$ = 100MHz, $$f_{read}$$ = 80MHz, Burst length = 50
+- One clock cycle delay between two successive reads and writes (idle case)
+- Time required to write one data = 10nsec.
+- To write all the data in the burst into fifo mem, time need = 500nsec
+- Time required to read one data = 12.5nsec.
+- no. of data items can be read within the 500nesc is 40.
+- So fifo mem. depth is needed = 50 - 40 = 10.
 
 ---
 
