@@ -52,6 +52,10 @@ As one example I can give here like suppose a temporary storage element is one s
 - Tests basic FIFO operations: write, read, full, and empty detection.
 - Displays output on simulation waveform.
 
+### 7️⃣ **'Assumption'** 
+- Wtite clock domain speed is higher than read clock domain.
+- $$f_{write}$$ = 100MHz
+
 ---
 
 ## 📝 **Usage Instructions**
