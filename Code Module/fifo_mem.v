@@ -1,7 +1,7 @@
 //Code for the FIFO memory module
 `timescale 1ns / 1ps
 
-module fifo_mem #(parameter SIZE = 4, parameter WIDTH = 8, parameter DEPTH = 16)(
+module fifo_mem #(parameter SIZE = 4, parameter WIDTH = 8, parameter DEPTH = 10)(
     input  wire                  wr_clk,       // Write clock
     input  wire                  rd_clk,       // Read clock
     input  wire                  rst_n,        // Active-low reset
