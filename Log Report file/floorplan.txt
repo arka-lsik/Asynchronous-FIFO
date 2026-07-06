@@ -1,0 +1,13 @@
+Reading Design
+STEP 1: Floorplan
+
+[WARNING IFP-0028] Core area lower left (5.000, 5.000) snapped to (5.060, 5.440).
+[INFO IFP-0001] Added 40 rows of 239 sites.
+[INFO GPL-0004] CoreAreaLxLy: 5060 5440
+[INFO GPL-0005] CoreAreaUxUy: 115000 114240
+[INFO GPL-0012] DieAreaLxLy: 0 0
+[INFO GPL-0013] DieAreaUxUy: 120000 120000
+[INFO GPL-0014] CoreAreaLxLy: 5060 5440
+[INFO GPL-0015] CoreAreaUxUy: 115000 114240
+[INFO GPL-0016] CoreArea: 11961472000
+Die area:                 ( 0 0 ) ( 120000 120000 )
