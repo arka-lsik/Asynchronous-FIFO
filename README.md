@@ -232,37 +232,38 @@ Sign-off Complete ✅
 
 ## 📁 Project Structure
 
+```
 async_fifo_pd/
 ├── rtl/
-│   └── async_fifo.v              ← RTL design
+│   └── async_fifo.v                      ← RTL design
 ├── netlist/
-│   └── async_fifo_netlist.v      ← Synthesized netlist
+│   └── async_fifo_netlist.v              ← Synthesized netlist
 ├── results/
-│   ├── step1_floorplan.def/gds   ← Each PD stage
-│   ├── step2_pins.def/gds
-│   ├── step3_pdn.def/gds
-│   ├── step4_placement.def/gds
-│   ├── step5_detailed.def/gds
-│   ├── step6_cts.def/gds
-│   ├── step7_routed.def/gds
-│   ├── step8_detailed_route.def/gds
-│   ├── step9_fill.def
-│   ├── async_fifo.spef           ← RC parasitics
-│   ├── pvt_sta.rpt               ← PVT timing sign-off
-│   ├── power.rpt                 ← Power analysis
-│   ├── antenna.rpt               ← Antenna check
-│   ├── ir_drop_vdd.rpt           ← IR drop
-│   ├── em_vdd.rpt                ← Electromigration
-│   └── density.rpt               ← Metal density
+│   ├── step1_floorplan.def + .gds        ← Floorplan
+│   ├── step2_pins.def + .gds             ← IO Pin Placement
+│   ├── step3_pdn.def + .gds              ← Power Distribution Network
+│   ├── step4_placement.def + .gds        ← Global Placement
+│   ├── step5_detailed.def + .gds         ← Detailed Placement
+│   ├── step6_cts.def + .gds              ← Clock Tree Synthesis
+│   ├── step7_routed.def + .gds           ← Global Routing
+│   ├── step8_detailed_route.def + .gds   ← Detailed Routing
+│   ├── step9_fill.def                    ← Fill Insertion
+│   ├── async_fifo.spef                   ← RC Parasitics
+│   ├── pvt_sta.rpt                       ← PVT Timing Sign-off
+│   ├── power.rpt                         ← Power Analysis
+│   ├── antenna.rpt                       ← Antenna Check
+│   ├── ir_drop_vdd.rpt                   ← IR Drop
+│   ├── em_vdd.rpt                        ← Electromigration
+│   └── density.rpt                       ← Metal Density
 ├── logs/
-│   ├── synth.log                 ← Yosys synthesis log
-│   ├── openroad_final.log        ← OpenROAD PnR log
-│   ├── rcx.log                   ← RC extraction log
-│   └── pvt_sta.log               ← PVT STA log
-├── async_fifo.sdc                ← Timing constraints
-├── synth.ys                      ← Yosys script
-└── flow.tcl                      ← OpenROAD flow script
-
+│   ├── synth.log                         ← Yosys Synthesis Log
+│   ├── openroad_final.log                ← OpenROAD PnR Log
+│   ├── rcx.log                           ← RC Extraction Log
+│   └── pvt_sta.log                       ← PVT STA Log
+├── async_fifo.sdc                        ← Timing Constraints
+├── synth.ys                              ← Yosys Script
+└── flow.tcl                              ← OpenROAD Flow Script
+```
 ---
 
 ## 🚀 How to Reproduce
