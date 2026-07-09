@@ -302,16 +302,6 @@ openroad -no_splash -exit flow.tcl
 
 ---
 
-## 📄 CV Line
-
-**Long:**
-> Designed CDC-safe Asynchronous FIFO (8b×16d, Gray-code pointers, 2-FF synchronizers) through complete RTL-to-GDS flow using Yosys + OpenROAD on SkyWater 130nm HD PDK. Synthesis: 417 cells. Physical design: 6568 µm² core area (55% utilisation), CTS across 2 clock domains (wr_clk: 147 sinks, rd_clk: 19 sinks), detailed routing with 0 DRC violations, RC extraction (333KB SPEF). Sign-off: multi-corner PVT STA — TT WNS +4.09ns, SS WNS +1.33ns, FF WNS +5.10ns (all timing closed), power 1.10mW @ 100MHz, IR drop, EM, antenna check (0 violations), ERC, metal density analysis.
-
-**Short:**
-> • Async FIFO RTL-to-GDS | Sky130 130nm | 417 cells | 6568 µm² | 55% util | WNS +1.33ns (SS) | 1.10mW | 0 DRC | 0 antenna ✅
-
----
-
 ## 🏷️ Skills
 
 `OpenROAD` `Yosys` `SkyWater 130nm` `Physical Design` `Floorplanning`
