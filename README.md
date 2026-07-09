@@ -40,27 +40,32 @@ Ethernet (100MHz) ──writes──▶ [ASYNC FIFO] ──reads──▶ System
 
 ## 🏗️ RTL Architecture
 
+```
 async_fifo (top)
-├── Dual-port FIFO memory (16×8 flop array)
-├── Write pointer (binary + Gray encoder)
-├── Read pointer (binary + Gray encoder)
-├── 2-FF synchronizer: wr_gray → rd_clk domain
-├── 2-FF synchronizer: rd_gray → wr_clk domain
-├── Full flag logic (write domain)
-└── Empty flag logic (read domain)
+├── Dual-port FIFO memory     (16×8 flop array)
+├── Write pointer             (binary + Gray encoder)
+├── Read pointer              (binary + Gray encoder)
+├── 2-FF synchronizer         wr_gray → rd_clk domain
+├── 2-FF synchronizer         rd_gray → wr_clk domain
+├── Full flag logic           (write domain)
+└── Empty flag logic          (read domain)
+```
 
 ### Module Hierarchy
 
 ### CDC Safety Mechanism
 
-Write Domain          │          Read Domain
-─────────────────────────────────────────────
-wr_bin → b2g → wr_gray──[2FF sync]──▶ wg_s2
-│
-empty flag
-rd_bin → b2g → rd_gray──[2FF sync]──▶ rg_s2
-│
-full flag
+```
+Write Domain                        Read Domain
+────────────────────────────────────────────────
+wr_bin → b2g → wr_gray ──[2FF]──▶ wg_s2
+                                      │
+                                 empty flag
+
+rd_bin → b2g → rd_gray ──[2FF]──▶ rg_s2
+                                      │
+                                  full flag
+```
 
 ### Key RTL Features
 - `(* ASYNC_REG = "TRUE" *)` on all synchronizer FFs
