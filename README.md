@@ -168,12 +168,28 @@ Sign-off Complete ✅
 | Combinational | 0.364 mW (33%) |
 | **Total** | **1.10 mW @ 100MHz** |
 
+---
+
 ## 🕰️ Clock Tree Synthesis
 
 | Clock | Sinks | Buffers | Path Depth | Avg Wire Length |
 |-------|-------|---------|------------|-----------------|
 | **wr_clk** | 147 | 17 | 2-2 | 119.94 µm |
 | **rd_clk** | 19 | 3 | 2-2 | 88.55 µm |
+
+---
+
+## ⏱️ Timing Summary
+
+### Pre vs Post CTS
+
+| Metric | Pre-CTS | Post-CTS | Skew |
+|--------|---------|----------|-------|
+| Clock delay | 0.228 ns | 0.230 ns | +0.002 ns |
+| Data arrival | 2.859 ns | 3.628 ns | +0.769 ns |
+| **WNS** | **+4.14 ns** | **+3.37 ns** | **-0.77 ns** |
+| TNS | 0.0 ns | 0.0 ns | — |
+| Status | ✅ MET | ✅ MET | — |
 
 ---
 
@@ -190,40 +206,6 @@ Sign-off Complete ✅
 
 **Detailed Routing:** TritonRoute resolved 1594 initial violations → **0 final violations**
 
----
-
-## ⏱️ Timing Summary
-
-### Pre vs Post CTS
-
-| Metric | Pre-CTS | Post-CTS | Skew |
-|--------|---------|----------|-------|
-| Clock delay | 0.228 ns | 0.230 ns | +0.002 ns |
-| Data arrival | 2.859 ns | 3.628 ns | +0.769 ns |
-| **WNS** | **+4.14 ns** | **+3.37 ns** | **-0.77 ns** |
-| TNS | 0.0 ns | 0.0 ns | — |
-| Status | ✅ MET | ✅ MET | — |
-
-### Pre vs Post Routing
-
-| Stage | WNS | Hold WNS | TNS | Status |
-|-------|-----|----------|-----|--------|
-| Pre-route | +4.14 ns | +0.35 ns | 0.0 | ✅ |
-| Post-route | +3.37 ns | +0.33 ns | 0.0 | ✅ |
-| Post-RC (SPEF) | +4.09 ns | +0.33 ns | 0.0 | ✅ |
-
-### PVT Corner Sign-off
-
-| Corner | Condition | Setup WNS | Hold WNS | Status |
-|--------|-----------|-----------|----------|--------|
-| TT | 25°C, 1.80V | +4.09 ns | +0.33 ns | ✅ |
-| SS | 100°C, 1.60V | +1.33 ns | +0.68 ns | ✅ |
-| FF | -40°C, 1.95V | +5.10 ns | +0.20 ns | ✅ |
-
----
-
-## 🔌 Routing Summary
-
 | Stage | Tool | Result |
 |-------|------|--------|
 | Global Route | FastRoute | 791 met1 + 188 met2 + 90 met3 segments |
@@ -231,6 +213,18 @@ Sign-off Complete ✅
 | Total Route Time | — | ~1 min 37 sec |
 | Peak Memory | — | 525 MB |
 | Final DRC | — | 0 violations ✅ |
+
+---
+
+### Timing of Pre vs Post Routing 
+
+| Stage | WNS | Hold WNS | TNS | Status |
+|-------|-----|----------|-----|--------|
+| Pre-route | +4.14 ns | +0.35 ns | 0.0 | ✅ |
+| Post-route | +3.37 ns | +0.33 ns | 0.0 | ✅ |
+| Post-RC (SPEF) | +4.09 ns | +0.33 ns | 0.0 | ✅ |
+
+---
 
 #### Sign-off Checklist
 
@@ -246,7 +240,13 @@ Sign-off Complete ✅
 | Fill Insertion | ✅ 921 cells |
 
 ---
+### PVT Corner Sign-off STA
 
+| Corner | Condition | Setup WNS | Hold WNS | Status |
+|--------|-----------|-----------|----------|--------|
+| TT | 25°C, 1.80V | +4.09 ns | +0.33 ns | ✅ |
+| SS | 100°C, 1.60V | +1.33 ns | +0.68 ns | ✅ |
+| FF | -40°C, 1.95V | +5.10 ns | +0.20 ns | ✅ |
 ---
 ## 📈 Visualizations
 
