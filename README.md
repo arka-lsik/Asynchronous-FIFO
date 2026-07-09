@@ -144,15 +144,21 @@ Sign-off Complete ✅
 | clkbuf | 20 | Clock tree buffers |
 | Logic | 63 | Full/empty flag logic |
 
-### Sign-off Results
+---
 
-#### Timing (PVT Corners)
+## 📐 Floorplan Summary
 
-| Corner | Condition | Setup WNS | Hold WNS | TNS | Status |
-|--------|-----------|-----------|----------|-----|--------|
-| **TT** | 25°C, 1.80V | +4.09 ns | +0.33 ns | 0.0 | ✅ PASS |
-| **SS** | 100°C, 1.60V | +1.33 ns | +0.68 ns | 0.0 | ✅ PASS |
-| **FF** | -40°C, 1.95V | +5.10 ns | +0.20 ns | 0.0 | ✅ PASS |
+| Parameter | Value |
+|-----------|-------|
+| Die Area | 120 × 120 µm |
+| Core Area | 109.94 × 108.80 µm |
+| Standard Cell Rows | 40 rows × 239 sites |
+| Total Sites | 9,560 |
+| Cells Placed | 417 |
+| Utilization | 55% |
+| IO Pins | 24 (on bottom edge) |
+
+---
 
 #### Power Analysis
 
@@ -161,21 +167,6 @@ Sign-off Complete ✅
 | Sequential | 0.739 mW (67%) |
 | Combinational | 0.364 mW (33%) |
 | **Total** | **1.10 mW @ 100MHz** |
-
-#### Sign-off Checklist
-
-| Check | Result |
-|-------|--------|
-| DRC (OpenROAD) | ✅ 0 violations |
-| Antenna Check | ✅ 0 violations |
-| RC Extraction | ✅ 333KB SPEF |
-| IR Drop | ✅ Analyzed |
-| Electromigration | ✅ Analyzed |
-| ERC (Power Grid) | ✅ PDN fully connected |
-| Metal Density | ✅ Analyzed |
-| Fill Insertion | ✅ 921 cells |
-
----
 
 ## 🕰️ Clock Tree Synthesis
 
@@ -201,43 +192,11 @@ Sign-off Complete ✅
 
 ---
 
-## 📈 Visualizations
-
-### Step-by-Step Physical Design
-
-| Step | View |
-|------|------|
-| Floorplan | ![Floorplan](Results/viz_step1_floorplan.png) |
-| IO Pins | ![IO Pins](Results/viz_step2_pins.png) |
-| PDN | ![PDN](Results/viz_step3_pdn.png) |
-| Global Placement | ![Global Placement](Results/viz_step4_placement.png) |
-| Detailed Placement | ![Detailed Placement](Results/viz_step5_detailed.png) |
-| CTS | ![CTS](Results/viz_step6_cts.png) |
-| Global Routing | ![Routing](Results/viz_step7_routing.png) |
-
----
-
----
-
-## 📐 Floorplan Summary
-
-| Parameter | Value |
-|-----------|-------|
-| Die Area | 120 × 120 µm |
-| Core Area | 109.94 × 108.80 µm |
-| Standard Cell Rows | 40 rows × 239 sites |
-| Total Sites | 9,560 |
-| Cells Placed | 417 |
-| Utilization | 55% |
-| IO Pins | 24 (on bottom edge) |
-
----
-
 ## ⏱️ Timing Summary
 
 ### Pre vs Post CTS
 
-| Metric | Pre-CTS | Post-CTS | Delta |
+| Metric | Pre-CTS | Post-CTS | Skew |
 |--------|---------|----------|-------|
 | Clock delay | 0.228 ns | 0.230 ns | +0.002 ns |
 | Data arrival | 2.859 ns | 3.628 ns | +0.769 ns |
@@ -273,7 +232,35 @@ Sign-off Complete ✅
 | Peak Memory | — | 525 MB |
 | Final DRC | — | 0 violations ✅ |
 
+#### Sign-off Checklist
+
+| Check | Result |
+|-------|--------|
+| DRC (OpenROAD) | ✅ 0 violations |
+| Antenna Check | ✅ 0 violations |
+| RC Extraction | ✅ 333KB SPEF |
+| IR Drop | ✅ Analyzed |
+| Electromigration | ✅ Analyzed |
+| ERC (Power Grid) | ✅ PDN fully connected |
+| Metal Density | ✅ Analyzed |
+| Fill Insertion | ✅ 921 cells |
+
 ---
+
+---
+## 📈 Visualizations
+
+### Step-by-Step Physical Design
+
+| Step | View |
+|------|------|
+| Floorplan | ![Floorplan](Results/viz_step1_floorplan.png) |
+| IO Pins | ![IO Pins](Results/viz_step2_pins.png) |
+| PDN | ![PDN](Results/viz_step3_pdn.png) |
+| Global Placement | ![Global Placement](Results/viz_step4_placement.png) |
+| Detailed Placement | ![Detailed Placement](Results/viz_step5_detailed.png) |
+| CTS | ![CTS](Results/viz_step6_cts.png) |
+| Global Routing | ![Routing](Results/viz_step7_routing.png) |
 
 ## 🛠️ Tools Used
 
