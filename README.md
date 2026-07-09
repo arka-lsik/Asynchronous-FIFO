@@ -186,7 +186,7 @@ Sign-off Complete ✅
 
 ---
 
-## 🕰️ Clock Tree Synthesis
+## 🕰️ Clock Tree Synthesis(H-Tree)
 
 | Clock | Sinks | Buffers | Path Depth | Avg Wire Length |
 |-------|-------|---------|------------|-----------------|
