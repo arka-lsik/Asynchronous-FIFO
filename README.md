@@ -72,38 +72,47 @@ full flag
 
 ## 🔄 Complete Physical Design Flow
 
-async_fifo.v (RTL)
-│
-▼
-[Yosys]
-│ Logic Synthesis
-▼
+```
+async_fifo.v  (RTL)
+      │
+      ▼
+  ┌────────┐
+  │ Yosys  │  Logic Synthesis
+  └────────┘
+      │
+      ▼
 async_fifo_netlist.v
-│
-▼
-[OpenROAD]
-├── 1. Floorplan      → 120×120 µm die
-├── 2. IO Placement   → 24 pins on boundary
-├── 3. PDN            → met1+met4+met5 power grid
-├── 4. Global Place   → NesterovSolve optimizer
-├── 5. Detailed Place → Legal row placement
-├── 6. CTS            → H-Tree, 2 domains
-├── 7. Global Route   → GRT with congestion analysis
-├── 8. Detailed Route → TritonRoute, 0 DRC violations
-└── 9. Fill Insertion → 921 filler cells
-│
-▼
-[OpenRCX]
-│ RC Extraction
-▼
-async_fifo.spef (333KB)
-│
-▼
-[OpenSTA]
-│ Sign-off STA (TT/SS/FF corners)
-▼
+      │
+      ▼
+  ┌──────────┐
+  │ OpenROAD │
+  └──────────┘
+      ├── Step 1: Floorplan       → 120×120 µm die, 40 rows
+      ├── Step 2: IO Placement    → 24 pins on chip boundary
+      ├── Step 3: PDN             → met1 + met4 + met5 power grid
+      ├── Step 4: Global Place    → NesterovSolve optimizer
+      ├── Step 5: Detailed Place  → Legal row placement, 0 overlaps
+      ├── Step 6: CTS             → H-Tree, wr_clk + rd_clk domains
+      ├── Step 7: Global Route    → GRT with congestion analysis
+      ├── Step 8: Detailed Route  → TritonRoute, 0 DRC violations
+      └── Step 9: Fill Insertion  → 921 filler cells inserted
+      │
+      ▼
+  ┌──────────┐
+  │ OpenRCX  │  RC Parasitic Extraction
+  └──────────┘
+      │
+      ▼
+async_fifo.spef  (333 KB)
+      │
+      ▼
+  ┌──────────┐
+  │ OpenSTA  │  Sign-off STA (TT / SS / FF corners)
+  └──────────┘
+      │
+      ▼
 Sign-off Complete ✅
-
+```
 
 ---
 
