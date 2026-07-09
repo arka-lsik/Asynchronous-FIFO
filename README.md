@@ -325,7 +325,7 @@ openroad -no_splash -exit flow.tcl
 ## 📚 References
 
 1. Cliff Cummings, "Simulation and Synthesis Techniques for Asynchronous FIFO Design", SNUG 2002
-2. SkyWater SKY130 PDK Documentation
+2. SkyWater SKY130 PDK Documentation 
 3. OpenROAD Project Documentation
 
 ---
