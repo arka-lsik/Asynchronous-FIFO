@@ -160,13 +160,29 @@ Sign-off Complete ✅
 
 ---
 
-#### Power Analysis
+## ⚡ Power Analysis Summary
 
-| Component | Power |
-|-----------|-------|
-| Sequential | 0.739 mW (67%) |
-| Combinational | 0.364 mW (33%) |
-| **Total** | **1.10 mW @ 100MHz** |
+| Component | Internal | Switching | Leakage | Total | % |
+|-----------|----------|-----------|---------|-------|---|
+| **Sequential** | 0.711 mW | 0.027 mW | 1.41 pW | **0.739 mW** | 67% |
+| **Combinational** | 0.203 mW | 0.161 mW | 1.06 pW | **0.364 mW** | 33% |
+| **Macro** | 0 | 0 | 0 | 0 | 0% |
+| **Total** | **0.914 mW** | **0.188 mW** | **2.47 pW** | **1.103 mW** | 100% |
+
+### Power Breakdown
+
+| Power Type | Value | Meaning |
+|------------|-------|---------|
+| **Internal Power** | 0.914 mW (83%) | Cell switching inside standard cells |
+| **Switching Power** | 0.188 mW (17%) | Wire charging/discharging |
+| **Leakage Power** | 2.47 pW (~0%) | Static transistor leakage |
+| **Total Power** | **1.103 mW** | @ 100 MHz, 1.80V, TT corner |
+
+### Key Observations
+- Sequential cells dominate power (67%) — 166 DFFs switching every cycle
+- Leakage power is negligible (2.47 pW) — good for low-power design
+- Dynamic power (internal + switching) = 99.9% of total power
+- Low total power (1.10 mW) — suitable for battery-powered applications
 
 ---
 
