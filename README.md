@@ -217,6 +217,171 @@ Sign-off Complete ✅
 
 ---
 
+---
+
+## 📐 Floorplan Details
+
+```
+Die Area  : 120 × 120 µm  (120,000 × 120,000 nm)
+Core Area : 109.94 × 108.80 µm
+Core Origin: (5.06, 5.44) µm  ← snapped to site grid
+
+Standard Cell Site : 0.46 µm wide × 2.72 µm tall
+Total Rows         : 40 rows
+Sites per Row      : 239 sites
+Total Sites        : 40 × 239 = 9,560 available positions
+Cells Placed       : 417 out of 9,560
+Utilization        : 55%
+
+IO Pins            : 24 pins placed on bottom edge
+  - Write domain   : wr_clk, wr_rst_n, wr_en, wr_data[7:0]
+  - Read domain    : rd_clk, rd_rst_n, rd_en, rd_data[7:0]
+  - Status flags   : full, empty
+```
+
+---
+
+## ⏱️ Timing Reports
+
+### Pre-CTS Timing (Estimated Parasitics)
+
+**Worst Setup Path (rd_clk domain):**
+```
+Startpoint : _614_/CLK  (FF clocked by rd_clk)
+Endpoint   : rd_data[0] (output port)
+Path Type  : max (setup check)
+
+  Clock network delay   :  0.228 ns
+  FF output delay       :  1.482 ns
+  Mux4 delay            :  0.632 ns
+  Mux4 delay            :  0.516 ns
+  Output pin            :  0.001 ns
+  ─────────────────────────────────
+  Data arrival time     :  2.859 ns
+  Data required time    :  7.000 ns  (10ns - 3ns output delay)
+  ─────────────────────────────────
+  Slack                 : +4.141 ns  ✅ MET
+```
+
+**Pre-CTS Summary:**
+
+| Path Group | WNS | TNS | Status |
+|------------|-----|-----|--------|
+| rd_clk (setup) | +4.14 ns | 0.0 ns | ✅ MET |
+| wr_clk (setup) | +5.60 ns | 0.0 ns | ✅ MET |
+| rd_clk (hold)  | +0.35 ns | 0.0 ns | ✅ MET |
+| wr_clk (hold)  | +0.33 ns | 0.0 ns | ✅ MET |
+
+---
+
+### Post-CTS Timing (Propagated Clock)
+
+**Worst Setup Path (rd_clk domain):**
+```
+Startpoint : _614_/CLK  (FF clocked by rd_clk)
+Endpoint   : rd_data[6] (output port)
+Path Type  : max (setup check)
+
+  Clock network delay   :  0.230 ns  (propagated through CTS buffers)
+  FF output delay       :  1.613 ns
+  Mux4 delay            :  1.239 ns  ← wire RC effect visible here
+  Mux4 delay            :  0.545 ns
+  Output pin            :  0.001 ns
+  ─────────────────────────────────
+  Data arrival time     :  3.628 ns
+  Data required time    :  7.000 ns
+  ─────────────────────────────────
+  Slack                 : +3.372 ns  ✅ MET
+```
+
+**Pre vs Post CTS Comparison:**
+
+| Metric | Pre-CTS | Post-CTS | Delta | Reason |
+|--------|---------|----------|-------|--------|
+| Clock delay | 0.228 ns | 0.230 ns | +0.002 ns | Real CTS buffer delay |
+| FF delay | 1.482 ns | 1.613 ns | +0.131 ns | Output wire cap |
+| Mux delay | 0.632 ns | 1.239 ns | +0.607 ns | Wire RC between muxes |
+| **Total arrival** | **2.859 ns** | **3.628 ns** | **+0.769 ns** | Wire RC contribution |
+| **WNS** | **+4.141 ns** | **+3.372 ns** | **-0.769 ns** | Still timing closed ✅ |
+
+---
+
+### Pre vs Post Routing Timing
+
+| Stage | WNS (Setup) | WNS (Hold) | TNS | Status |
+|-------|------------|------------|-----|--------|
+| **Pre-route** (placement) | +4.141 ns | +0.347 ns | 0.0 | ✅ |
+| **Post-route** (global route) | +3.372 ns | +0.332 ns | 0.0 | ✅ |
+| **Post-RC** (extracted) | +4.087 ns | +0.332 ns | 0.0 | ✅ |
+
+**Key observation:**
+> Wire RC extraction actually improved WNS from +3.37ns to +4.09ns  
+> This is because RC extraction gave more accurate (less pessimistic) wire models
+
+---
+
+### PVT Corner Sign-off
+
+| Corner | Condition | Setup WNS | Hold WNS | TNS | Status |
+|--------|-----------|-----------|----------|-----|--------|
+| **TT** | 25°C, 1.80V | +4.09 ns | +0.33 ns | 0.0 | ✅ PASS |
+| **SS** | 100°C, 1.60V | +1.33 ns | +0.68 ns | 0.0 | ✅ PASS |
+| **FF** | -40°C, 1.95V | +5.10 ns | +0.20 ns | 0.0 | ✅ PASS |
+
+> **SS corner is critical for setup** — slowest transistors, highest temp, lowest voltage  
+> **FF corner is critical for hold** — fastest transistors, lowest temp, highest voltage  
+> All corners pass both setup AND hold ✅
+
+---
+
+## 🔌 Global Routing Results
+
+```
+Tool            : OpenROAD GRT (Global Router)
+Algorithm       : FastRoute
+Layer adjustments:
+  met1 : 0.65 (65% capacity reduction — congested layer)
+  met2 : 0.65 (65% capacity reduction)
+
+Routing guide file : results/route.guide
+
+Routing segments per layer:
+  met1 : 791 segments  (horizontal — most used)
+  met2 : 188 segments  (vertical)
+  met3 :  90 segments  (horizontal)
+  met4 :   6 segments  (vertical — mostly power)
+```
+
+---
+
+## 🔌 Detailed Routing Results
+
+```
+Tool       : TritonRoute (OpenROAD)
+Algorithm  : Iterative rip-up and reroute
+
+Iteration  Violations  Time
+─────────────────────────────
+    1         1594     1m 02s   ← initial rough routing
+    2           25     0m 20s   ← major fixing (98% resolved)
+    3           23     0m 12s   ← fine tuning
+    4            0     0m 01s   ← ✅ all violations fixed
+  5-8            0     0m 01s   ← verification passes
+
+Final result   : 0 DRC violations ✅
+Peak memory    : 525 MB
+Total time     : ~1 min 37 sec
+
+Layers used:
+  li1   → Local interconnect (19,221 shapes)
+  mcon  → Metal contact li1→met1 (11,687 shapes)
+  met1  → Power rails + local routing (4,283 shapes)
+  met2  → Signal routing (vertical)
+  met3  → Signal routing (horizontal)
+  met4  → Long routes + power stripes
+  met5  → Power stripes only
+```
+
 ## 🛠️ Tools Used
 
 | Tool | Version | Purpose |
