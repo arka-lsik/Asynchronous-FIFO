@@ -242,6 +242,65 @@ Sign-off Complete ✅
 
 ---
 
+## 🔋 IR Drop & Electromigration (EMIR) Analysis
+
+### IR Drop Analysis (VDD Network)
+
+```
+Tool    : OpenROAD PSM (Power Static Margin)
+Net     : VDD
+Voltage : 1.800 V nominal
+```
+
+| Metric | Value | Status |
+|--------|-------|--------|
+| **Supply Voltage** | 1.800 V | — |
+| **Maximum Voltage** | 1.79972 V | — |
+| **Minimum Voltage** | 1.79897 V | — |
+| **Average Voltage** | 1.79942 V | — |
+| **Maximum IR Drop** | 1.030 mV | ✅ < 10% VDD |
+| **Average IR Drop** | 0.579 mV | ✅ Excellent |
+| **Max Drop %** | 0.057% | ✅ Well within limit |
+
+**Key observation:**
+> Maximum IR drop of **1.03 mV** is only **0.057%** of VDD (1.8V)  
+> Industry limit is typically 5-10% of VDD = 90-180 mV  
+> Our design is **87× better** than the limit ✅
+
+---
+
+### Electromigration (EM) Analysis (VDD Network)
+
+```
+Tool    : OpenROAD PSM
+Net     : VDD
+Segments analyzed : 596 total, 515 active
+```
+
+| Metric | Value |
+|--------|-------|
+| **Total PDN segments** | 596 |
+| **Active segments** | 515 |
+| **Maximum current** | 0.446 mA |
+| **Average current** | 0.026 mA |
+
+**Key observation:**
+> Maximum segment current = **0.446 mA**  
+> Sky130 met4 EM limit ≈ 4-5 mA for 0.48µm width  
+> Our design is well within EM limits ✅
+
+---
+
+### EMIR Summary
+
+| Check | Result | Limit | Status |
+|-------|--------|-------|--------|
+| IR Drop (max) | 1.03 mV | 90 mV (5%) | ✅ PASS |
+| IR Drop (avg) | 0.58 mV | — | ✅ PASS |
+| EM (max current) | 0.446 mA | ~4 mA | ✅ PASS |
+
+---
+
 #### Sign-off Checklist
 
 | Check | Result |
