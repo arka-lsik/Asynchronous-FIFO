@@ -1,0 +1,13 @@
+PVT Corner Sign-off STA Results
+===============================
+Design  : async_fifo (8b x 16d CDC FIFO)
+PDK     : SkyWater 130nm HD (sky130_fd_sc_hd)
+Clock   : 100 MHz (10ns period)
+
+Corner            Setup WNS    Hold WNS    TNS    Status
+---------------------------------------------------------
+TT (025C 1v80)    +4.09 ns    +0.33 ns    0.0    PASS ✅
+SS (100C 1v60)    +1.33 ns    +0.68 ns    0.0    PASS ✅
+FF (n40C 1v95)    +5.10 ns    +0.20 ns    0.0    PASS ✅
+---------------------------------------------------------
+All corners TIMING CLOSED ✅
