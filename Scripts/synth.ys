@@ -1,0 +1,19 @@
+# Set paths (update these to match your environment)
+set PDK_LIB "/path/to/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+
+read_verilog rtl/async_fifo.v
+
+hierarchy -check -top async_fifo
+
+synth -top async_fifo
+
+dfflibmap -liberty $PDK_LIB
+
+abc -liberty $PDK_LIB
+
+opt_clean -purge
+clean
+
+write_verilog -noattr -noexpr netlist/async_fifo_netlist.v
+
+stat -liberty $PDK_LIB
