@@ -1,0 +1,57 @@
+##Setup time report befor routing, for both clock domain
+
+Startpoint: _614_ (rising edge-triggered flip-flop clocked by rd_clk)
+Endpoint: rd_data[0] (output port clocked by rd_clk)
+Path Group: rd_clk
+Path Type: max
+
+    Delay      Time   Description
+-------------------------------------------------------------
+   0.0000    0.0000   clock rd_clk (rise edge)
+   0.2282    0.2282   clock network delay (propagated)
+   0.0000    0.2282 ^ _614_/CLK (sky130_fd_sc_hd__dfrtp_1)
+   1.4824    1.7106 ^ _614_/Q (sky130_fd_sc_hd__dfrtp_1)
+   0.6324    2.3430 v _294_/X (sky130_fd_sc_hd__mux4_2)
+   0.5156    2.8586 v _298_/X (sky130_fd_sc_hd__mux4_2)
+   0.0006    2.8592 v rd_data[0] (out)
+             2.8592   data arrival time
+
+  10.0000   10.0000   clock rd_clk (rise edge)
+   0.0000   10.0000   clock network delay (propagated)
+   0.0000   10.0000   clock reconvergence pessimism
+  -3.0000    7.0000   output external delay
+             7.0000   data required time
+-------------------------------------------------------------
+             7.0000   data required time
+            -2.8592   data arrival time
+-------------------------------------------------------------
+             4.1408   slack (MET)
+
+
+Startpoint: _629_ (rising edge-triggered flip-flop clocked by wr_clk)
+Endpoint: full (output port clocked by wr_clk)
+Path Group: wr_clk
+Path Type: max
+
+    Delay      Time   Description
+-------------------------------------------------------------
+   0.0000    0.0000   clock wr_clk (rise edge)
+   0.2945    0.2945   clock network delay (propagated)
+   0.0000    0.2945 ^ _629_/CLK (sky130_fd_sc_hd__dfrtp_1)
+   0.3761    0.6706 v _629_/Q (sky130_fd_sc_hd__dfrtp_1)
+   0.1300    0.8006 v _265_/X (sky130_fd_sc_hd__lpflow_isobufsrc_1)
+   0.4083    1.2090 v _271_/X (sky130_fd_sc_hd__a2111o_1)
+   0.2031    1.4120 ^ _273_/Y (sky130_fd_sc_hd__nor2_1)
+   0.0006    1.4126 ^ full (out)
+             1.4126   data arrival time
+
+  10.0000   10.0000   clock wr_clk (rise edge)
+   0.0000   10.0000   clock network delay (propagated)
+   0.0000   10.0000   clock reconvergence pessimism
+  -3.0000    7.0000   output external delay
+             7.0000   data required time
+-------------------------------------------------------------
+             7.0000   data required time
+            -1.4126   data arrival time
+-------------------------------------------------------------
+             5.5874   slack (MET)
