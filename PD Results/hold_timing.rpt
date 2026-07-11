@@ -1,0 +1,55 @@
+##Hold timing report befor routing stage, for both clock domain
+
+
+Startpoint: _608_ (rising edge-triggered flip-flop clocked by rd_clk)
+Endpoint: _613_ (rising edge-triggered flip-flop clocked by rd_clk)
+Path Group: rd_clk
+Path Type: min
+
+    Delay      Time   Description
+-------------------------------------------------------------
+   0.0000    0.0000   clock rd_clk (rise edge)
+   0.2282    0.2282   clock network delay (propagated)
+   0.0000    0.2282 ^ _608_/CLK (sky130_fd_sc_hd__dfrtp_1)
+   0.3079    0.5361 ^ _608_/Q (sky130_fd_sc_hd__dfrtp_1)
+   0.0040    0.5401 ^ _613_/D (sky130_fd_sc_hd__dfrtp_1)
+             0.5401   data arrival time
+
+   0.0000    0.0000   clock rd_clk (rise edge)
+   0.2349    0.2349   clock network delay (propagated)
+   0.0000    0.2349   clock reconvergence pessimism
+             0.2349 ^ _613_/CLK (sky130_fd_sc_hd__dfrtp_1)
+  -0.0339    0.2010   library hold time
+             0.2010   data required time
+-------------------------------------------------------------
+             0.2010   data required time
+            -0.5401   data arrival time
+-------------------------------------------------------------
+             0.3391   slack (MET)
+
+
+Startpoint: _594_ (rising edge-triggered flip-flop clocked by wr_clk)
+Endpoint: _599_ (rising edge-triggered flip-flop clocked by wr_clk)
+Path Group: wr_clk
+Path Type: min
+
+    Delay      Time   Description
+-------------------------------------------------------------
+   0.0000    0.0000   clock wr_clk (rise edge)
+   0.2902    0.2902   clock network delay (propagated)
+   0.0000    0.2902 ^ _594_/CLK (sky130_fd_sc_hd__dfrtp_1)
+   0.3126    0.6029 ^ _594_/Q (sky130_fd_sc_hd__dfrtp_1)
+   0.0040    0.6069 ^ _599_/D (sky130_fd_sc_hd__dfrtp_1)
+             0.6069   data arrival time
+
+   0.0000    0.0000   clock wr_clk (rise edge)
+   0.2902    0.2902   clock network delay (propagated)
+   0.0000    0.2902   clock reconvergence pessimism
+             0.2902 ^ _599_/CLK (sky130_fd_sc_hd__dfrtp_1)
+  -0.0333    0.2569   library hold time
+             0.2569   data required time
+-------------------------------------------------------------
+             0.2569   data required time
+            -0.6069   data arrival time
+-------------------------------------------------------------
+             0.3500   slack (MET)
