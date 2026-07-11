@@ -1,0 +1,14 @@
+
+#cat ~/async_fifo_pd/results/wns_routed.rpt
+wns 3.7147697080968234
+
+#cat ~/async_fifo_pd/results/tns_routed.rpt
+tns 0.0
+
+#After RC extraction thw worst negative slack(WNS) and total negative slack(TNS)
+#cat ~/async_fifo_pd/results/wns_rcx.rpt
+wns 4.140806925660241
+
+#cat ~/async_fifo_pd/results/tns_rcx.rpt
+tns 0.0
+
