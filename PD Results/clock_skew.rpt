@@ -1,0 +1,13 @@
+Clock rd_clk
+Latency      CRPR       Skew
+_609_/CLK ^
+   0.23
+_614_/CLK ^
+   0.23      0.00       0.01
+
+Clock wr_clk
+Latency      CRPR       Skew
+_600_/CLK ^
+   0.30
+_518_/CLK ^
+   0.28      0.00       0.02
