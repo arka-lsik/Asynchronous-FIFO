@@ -1,0 +1,30 @@
+#This report is a layout density report, which tells you how much of each physical layer is occupied over the total die area
+
+Die area: 14400.0 um2
+Layer 5/0: 0.11%
+Layer 4/0: 15.28%
+Layer 6/0: 0.10%
+Layer 7/0: 1.52%
+Layer 8/0: 4.89%
+Layer 236/0: 45.61%
+Layer 68/16: 0.17%
+Layer 66/20: 11.84%
+Layer 68/20: 13.04%
+Layer 67/44: 1.69%
+Layer 81/4: 45.61%
+Layer 94/20: 19.54%
+Layer 93/44: 18.10%
+Layer 65/20: 15.94%
+Layer 64/20: 26.24%
+Layer 78/44: 24.65%
+Layer 95/20: 9.94%
+Layer 67/20: 22.61%
+Layer 66/44: 3.01%
+Layer 67/16: 0.60%
+Layer 1/0: 100.00%
+Layer 2/2: 5.06%
+Layer 2/3: 17.55%
+Layer 3/3: 1.64%
+Layer 4/2: 11.07%
+Layer 9/2: 26.24%
+Layer 4/3: 1.97%
