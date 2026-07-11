@@ -332,12 +332,12 @@ Segments analyzed : 596 total, 515 active
 | Step 1 — Floorplan | Step 2 — IO Pin Placement |
 |---------------------|--------------------------|
 | Die: 120×120 µm, 40 cell rows | 24 pins on chip boundary |
-| ![Floorplan](Results/viz_step1_floorplan.png) | ![IO Pins](Results/viz_step2_pins.png) |
+| ![Floorplan](Results_Picture_Every_Steps/viz_step1_floorplan.png) | ![IO Pins](Results_Picture_Every_Steps/viz_step2_pins.png) |
 
 | Step 3 — PDN | Step 4 — Global Placement |
 |--------------|--------------------------|
 | met1+met4+met5 power grid | 417 cells roughly placed |
-| ![PDN](Results/viz_step3_pdn.png) | ![Global Placement](Results/viz_step4_placement.png) |
+| ![PDN](Results_Picture_Every_Steps/viz_step3_pdn.png) | ![Global Placement](Results_Picture_Every_Steps/viz_step4_placement.png) |
 
 | Step 5 — Detailed Placement | Step 6 — CTS |
 |-----------------------------|--------------|
