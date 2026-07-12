@@ -58,15 +58,11 @@ async_fifo (top)
 ```
 Write Domain                        Read Domain
 ────────────────────────────────────────────────
-wr_bin → b2g → wr_gray ──[2FF]──▶ wg_s2
-                                      │
-                                 empty flag
+wr_bin → b2g → wr_gray ──[2FF]──▶ wg_s2 ── empty flag
 
-rd_bin → b2g → rd_gray ──[2FF]──▶ rg_s2
-                                      │
-                                  full flag
+rd_bin → b2g → rd_gray ──[2FF]──▶ rg_s2 ── full flag
+
 ```
-
 ### Key RTL Features
 - `(* ASYNC_REG = "TRUE" *)` on all synchronizer FFs
 - Gray code: only 1 bit changes per increment → metastability safe
@@ -78,11 +74,11 @@ rd_bin → b2g → rd_gray ──[2FF]──▶ rg_s2
 ## 🔄 Complete Physical Design Flow
 
 ```
-async_fifo.v  (RTL)
+async_fifo.v (RTL)
       │
       ▼
   ┌────────┐
-  │ Yosys  │  Logic Synthesis
+  │ Yosys  │ Logic Synthesis
   └────────┘
       │
       ▼
@@ -104,15 +100,15 @@ async_fifo_netlist.v
       │
       ▼
   ┌──────────┐
-  │ OpenRCX  │  RC Parasitic Extraction
+  │ OpenRCX  │ RC Parasitic Extraction
   └──────────┘
       │
       ▼
-async_fifo.spef  (333 KB)
+async_fifo.spef (333 KB)
       │
       ▼
   ┌──────────┐
-  │ OpenSTA  │  Sign-off STA (TT / SS / FF corners)
+  │ OpenSTA  │ Sign-off STA (TT / SS / FF corners)
   └──────────┘
       │
       ▼
@@ -349,10 +345,15 @@ Segments analyzed : 596 total, 515 active
 | Blue=wr_clk, Red=rd_clk, Green=bufs | 791 met1 + 188 met2 + 90 met3 segs |
 | ![Clock Tree](Picture/clock_tree_1.png) | ![Global Routing](Picture/viz_step7_routing.png) |
 
-| Step 9 - Detailed Routing(GDS) | Step 9 — Final GDS (with Fill) |
+| Step 9 - Detailed Routing(GDS) | Step 9 — Zoomed one for Detailed Routing |
 |--------------------------------|--------------------------------|
-|  1594 → 0 DRC violations | 921 fill cells — final layout |
-| ![Detailed Route](Picture/Screenshot_2.png) | ![Final GDS](Picture/Screenshot_3.png) |
+|  1594 → 0 DRC violations | Zoomed picture for better understanding |
+| ![Detailed Route](Picture/Screenshot_2.png) | ![Final GDS](Picture/zoom_detailed_rote.png.png) |
+
+| Step 10 - Final GDS (with Fill) | step 10 - Zoomed Final GDS|
+|--------------------------------|--------------------------------|
+| 921 fill cells — final layout | Zoomed picture for better understanding |
+| ![Detailed Route](Picture/Screenshot_3.png) | ![Final GDS](Picture/zoom_final_gds_1.png) |
 
 | Netlist Analysis | RTL Schematic |
 |-----------------|---------------|
