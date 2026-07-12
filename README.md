@@ -337,22 +337,22 @@ Segments analyzed : 596 total, 515 active
 | Step 3 — PDN | Step 4 — Global Placement |
 |--------------|--------------------------|
 | met1+met4+met5 power grid | 417 cells roughly placed |
-| ![PDN](Results_Picture_Every_Steps/viz_step3_pdn.png) | ![Global Placement](Results_Picture_Every_Steps/viz_step4_placement.png) |
+| ![PDN](Picture/viz_step3_pdn.png) | ![Global Placement](Picture/viz_step4_placement.png) |
 
 | Step 5 — Detailed Placement | Step 6 — CTS |
 |-----------------------------|--------------|
 | 417 cells legally in rows, 0 overlaps | wr_clk(17 bufs) + rd_clk(3 bufs) |
-| ![Detailed Placement](Results/viz_step5_detailed.png) | ![CTS](Results/viz_step6_cts.png) |
+| ![Detailed Placement](Picture/viz_step5_detailed.png) | ![CTS](Picture/viz_step6_cts.png) |
 
 | Step 7 — Global Routing | Step 8 — Detailed Routing |
 |-------------------------|--------------------------|
 | 791 met1 + 188 met2 + 90 met3 segs | 1594 → 0 DRC violations |
-| ![Global Routing](Results/viz_step7_routing.png) | ![Detailed Route](Results/step8_screenshot.png) |
+| ![Global Routing](Picture/viz_step7_routing.png) | ![Detailed Route](Picture/screenshot_2.png) |
 
 | Step 9 — Final GDS (with Fill) | Clock Tree |
 |--------------------------------|------------|
 | 921 fill cells — final layout | Blue=wr_clk, Red=rd_clk, Green=bufs |
-| ![Final GDS](Results/step9_screenshot.png) | ![Clock Tree](Results/clock_tree_1.png) |
+| ![Final GDS](Picture/screenshot_3.png) | ![Clock Tree](Picture/clock_tree_1.png) |
 
 | Netlist Analysis | RTL Schematic |
 |-----------------|---------------|
