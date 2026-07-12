@@ -348,7 +348,7 @@ Segments analyzed : 596 total, 515 active
 | Step 9 - Detailed Routing(GDS) | Step 9 — Zoomed one for Detailed Routing |
 |--------------------------------|--------------------------------|
 |  1594 → 0 DRC violations | Zoomed picture for better understanding |
-| ![Detailed Route](Picture/Screenshot_2.png) | ![Final GDS](Picture/zoom_detailed_rote.png.png) |
+| ![Detailed Route](Picture/Screenshot_2.png) | ![Final GDS](Picture/zoom_detailed_rote.png) |
 
 | Step 10 - Final GDS (with Fill) | step 10 - Zoomed Final GDS|
 |--------------------------------|--------------------------------|
