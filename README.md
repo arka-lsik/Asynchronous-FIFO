@@ -344,15 +344,15 @@ Segments analyzed : 596 total, 515 active
 | 417 cells legally in rows, 0 overlaps | wr_clk(17 bufs) + rd_clk(3 bufs) |
 | ![Detailed Placement](Picture/viz_step5_detailed.png) | ![CTS](Picture/viz_step6_cts.png) |
 
-| Step 7 — Global Routing | Step 8 — Detailed Routing |
-|-------------------------|--------------------------|
-| 791 met1 + 188 met2 + 90 met3 segs | 1594 → 0 DRC violations |
-| ![Global Routing](Picture/viz_step7_routing.png) | ![Detailed Route](Picture/Screenshot_2.png) |
+| Step 7 — Clock Tree Detailing | Step 8 — Global Routing |
+|-------------------------|-------------------------------|
+| Blue=wr_clk, Red=rd_clk, Green=bufs | 791 met1 + 188 met2 + 90 met3 segs |
+| ![Clock Tree](Picture/clock_tree_1.png) | ![Global Routing](Picture/viz_step7_routing.png) |
 
-| Step 9 — Final GDS (with Fill) | Clock Tree |
-|--------------------------------|------------|
-| 921 fill cells — final layout | Blue=wr_clk, Red=rd_clk, Green=bufs |
-| ![Final GDS](Picture/Screenshot_3.png) | ![Clock Tree](Picture/clock_tree_1.png) |
+| Step 9 - Detailed Routing(GDS) | Step 9 — Final GDS (with Fill) |
+|--------------------------------|--------------------------------|
+|  1594 → 0 DRC violations | 921 fill cells — final layout |
+| ![Detailed Route](Picture/Screenshot_2.png) | ![Final GDS](Picture/Screenshot_3.png) |
 
 | Netlist Analysis | RTL Schematic |
 |-----------------|---------------|
