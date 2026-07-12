@@ -357,7 +357,7 @@ Segments analyzed : 596 total, 515 active
 | Netlist Analysis | RTL Schematic |
 |-----------------|---------------|
 | Cell type distribution | Gate-level Yosys schematic |
-| ![Netlist](Results/netlist_analysis.png) | ![Schematic](Results/schematic.png) |
+| ![Netlist](Picture/netlist_analysis.png) | ![Schematic](Picture/schematic.png) |
 
 ---
 
