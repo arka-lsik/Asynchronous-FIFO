@@ -347,12 +347,12 @@ Segments analyzed : 596 total, 515 active
 | Step 7 — Global Routing | Step 8 — Detailed Routing |
 |-------------------------|--------------------------|
 | 791 met1 + 188 met2 + 90 met3 segs | 1594 → 0 DRC violations |
-| ![Global Routing](Picture/viz_step7_routing.png) | ![Detailed Route](Picture/screenshot_2.png) |
+| ![Global Routing](Picture/viz_step7_routing.png) | ![Detailed Route](Picture/Screenshot_2.png) |
 
 | Step 9 — Final GDS (with Fill) | Clock Tree |
 |--------------------------------|------------|
 | 921 fill cells — final layout | Blue=wr_clk, Red=rd_clk, Green=bufs |
-| ![Final GDS](Picture/screenshot_3.png) | ![Clock Tree](Picture/clock_tree_1.png) |
+| ![Final GDS](Picture/Screenshot_3.png) | ![Clock Tree](Picture/clock_tree_1.png) |
 
 | Netlist Analysis | RTL Schematic |
 |-----------------|---------------|
