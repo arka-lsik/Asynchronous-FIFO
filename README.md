@@ -332,7 +332,7 @@ Segments analyzed : 596 total, 515 active
 | Step 1 — Floorplan | Step 2 — IO Pin Placement |
 |---------------------|--------------------------|
 | Die: 120×120 µm, 40 cell rows | 24 pins on chip boundary |
-| ![Floorplan](Results_Picture_Every_Steps/viz_step1_floorplan.png) | ![IO Pins](Results_Picture_Every_Steps/viz_step2_pins.png) |
+| ![Floorplan](Picture/viz_step1_floorplan.png) | ![IO Pins](Picture/viz_step2_pins.png) |
 
 | Step 3 — PDN | Step 4 — Global Placement |
 |--------------|--------------------------|
